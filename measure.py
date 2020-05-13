@@ -111,7 +111,7 @@ def merge_images(ping_graph, download_graph, upload_graph):
     combined_size = (
         ping_image.size[0],
         ping_image.size[1] + download_image.size[1] + upload_image.size[1]
-    )
+        )
     combined_image = Image.new('RGB', combined_size)
     combined_image.paste(im=download_image, box=(0,0))
     combined_image.paste(im=upload_image, box=(0, download_image.size[1]))
@@ -128,7 +128,8 @@ def upload(fname):
     '''upload the graph image using HTTP PUT, i.e. using WebDAV
 
     return the HTTP status code. For NextCloud, 204 is ok '''
-    http_request = requests.put(SETTINGS['graph_upload']['url'] + '/graph.png',
+    http_request = requests.put(
+            SETTINGS['graph_upload']['url'] + '/graph2.png',
         auth=(SETTINGS['graph_upload']['user'], SETTINGS['graph_upload']['password']),
         data=open(fname, 'rb').read()
     )
